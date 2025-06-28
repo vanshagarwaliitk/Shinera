@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home2.css">
+</head>
+  <script>
+    function display_nav() {
+        const nav = document.getElementsByClassName("navbar");
+        const style = window.getComputedStyle(nav[0])
+        console.log(style.translate)
+        if(style.translate == "0px -700%"){
+            nav[0].style.translate ="0px 0px";
+        }
+        else nav[0].style.translate = "0px -700%";
+    }
+    function showInfo(button) {
+ // Get the parent card of the clicked button
+ const card = button.closest(".card");
+
+ // Get the specific "info" div inside this card
+ const info = card.querySelector("#info");
+ 
+ // Get all elements with the "first" class inside this card
+ const firstElements = card.querySelectorAll(".first");
+
+ // Toggle visibility of "info"
+ if (info.style.visibility === "hidden" || info.style.visibility === "") {
+     info.style.visibility = "visible";
+
+     // Hide other firstElements inside the same card
+     firstElements.forEach((el, index) => {
+         if (index !== firstElements.length - 1) {
+             el.style.visibility = "hidden";
+         }
+     });
+
+     // Center the card's content
+     card.style.justifyContent = "center";
+
+     // Change button text
+     button.textContent = "Back";
+ } else {
+     info.style.visibility = "hidden";
+
+     // Show the firstElements again
+     firstElements.forEach(el => el.style.visibility = "visible");
+
+     // Reset alignment
+     card.style.justifyContent = "space-evenly";
+
+     // Reset button text
+     button.textContent = "Insight";
+ }
+}
+function show_answer(img){
+         const f = img.closest(".faq")
+         const r = f.querySelector("#answer")
+         if(r.style.display==="flex"){
+           r.style.display="none"
+           img.src="down.png"
+         }
+         else{
+          r.style.display="flex"
+          img.src="upload.png"
+         }
+      }
+  </script>
+<body>
+    <header>
+        <div id="nav_left">
+            <li id="menu">
+                <button id="menu_button" onclick=display_nav()>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" color="#066dd6" fill="none">
+                        <path d="M4 5L20 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 12L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 19L20 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </li>
+            <li> <a href="">ShInErA</a> </li>
+        </div>
+        <!-- <nav class="navbar"> -->
+            <ul class="navbar">
+                <li>
+                    <a href="">About us</a>
+                    <ul class="dropmenu">
+                        <li><a href="">Our Journey</a></li>
+                        <li><a href="">Our Team</a></li>
+                        <li><a href="">Vision</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Arena</a>
+                    <ul class="dropmenu">
+                        <li><a href="">Jee-Advanced</a></li>
+                        <li><a href="">Jee-Mains</a></li>
+                        <li><a href="">Neet-Ug</a></li>
+                        <li><a href="">Math Olympiad</a></li>
+                        <li><a href="">Physics Olympiad</a></li>
+                        <li><a href="">Chemistry Olympiad</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Growth</a>
+                    <ul class="dropmenu">
+                        <li><a href="">Jee-Advanced</a></li>
+                        <li><a href="">Jee-Mains</a></li>
+                        <li><a href="">Neet-Ug</a></li>
+                        <li><a href="">Math Olympiad</a></li>
+                        <li><a href="">Physics Olympiad</a></li>
+                        <li><a href="">Chemistry Olympiad</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Contribute</a>
+                    <ul class="dropmenu">
+                        <li><a href="">Jee-Advanced</a></li>
+                        <li><a href="">Jee-Mains</a></li>
+                        <li><a href="">Neet-Ug</a></li>
+                        <li><a href="">Math Olympiad</a></li>
+                        <li><a href="">Physics Olympiad</a></li>
+                        <li><a href="">Chemistry Olympiad</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Groups</a></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="">Register</a></li>
+               
+            </ul>
+        <!-- </nav> -->
+    </header>
+    <div id="page">
+        <div class="container">
+            <div class="donate">
+              <p class="twinkle">Donate for the upbringing of unprivileged kids, help them in building a good future.
+              </p>
+              <p class="twinkle" >Call us at 7084350098 or text us at agarwalvansh981@gmail.com.
+              </p>
+           </div>
+         
+            <div class="search">
+              <input type="text" placeholder="Search your friends..." name="search">
+               <img src="search.png" alt="" >
+            </div>
+             
+             <div class="advice"><p>Fill the form, if you need mentorship.</p></div>
+             <div class="form">
+                <input type="text" id="name" class="no-outline" placeholder="Enter your name">
+                <input type="text" id="mobile" class="no-outline" placeholder="Enter your mobile no.">
+                <input type="text" id="email" class="no-outline" placeholder="Enter your email">
+                <input type="text" id="career" class="no-outline" placeholder="Exam you are preparing for">
+                <input type="text" id="language" class="no-outline" placeholder="Language you preferred">
+                <button id="submit">Submit</button>
+             </div>
+             
+             <div class="ai_tut">
+              <img src="ai_tutor.png" alt="">
+              <button>Learn faster with AI</button>
+             </div>
+             <div class="content">
+               <img src="mit1.jpg" alt="">
+             </div>
+            </div>
+            <div class="course_line"><p>Courses Available</p></div>
+            <div class="courses-container">
+                <div class="courses">
+                   <div class="card">
+                       <div id="heading" class="first">
+                           <span>
+                            <img src="initiative.png" alt="">
+                            <h1>
+                                 Ignite
+                            </h1>
+                           </span> 
+                             <hr>
+                         </div>
+                        <hr>
+                        <p id="para" class="first">
+                           This test Series is design specially for those who are starting their preparation of IIT-JEE at the earlier of 
+                           class 11.
+                        </p>
+                        <button  class="first card_info" onclick=showInfo(this)>Insight</button>
+                           <div id="info">
+                               <p>Price of Course</p>
+                               <h3>Free</h3>
+                               <button  class=" card_info enroll">Enroll</button>
+                           </div>
+                       </div>
+                       <div class="card">
+                           <div id="heading" class="first">
+                               <span>
+                                <img src="initiative.png" alt="">
+                                <h1>
+                                     Ignite
+                                </h1>
+                               </span> 
+                                 <hr>
+                             </div>
+                            <hr>
+                            <p id="para" class="first">
+                               This test Series is design specially for those who are starting their preparation of IIT-JEE at the earlier of 
+                               class 11.
+                            </p>
+                            <button  class="first card_info" onclick=showInfo(this)>Insight</button>
+                               <div id="info">
+                                   <p>Price of Course</p>
+                                   <h3>Free</h3>
+                                   <button  class=" card_info enroll">Enroll</button>
+                               </div>
+                           </div>
+                           <div class="card">
+                               <div id="heading" class="first">
+                                   <span>
+                                    <img src="initiative.png" alt="">
+                                    <h1>
+                                         Ignite
+                                    </h1>
+                                   </span> 
+                                     <hr>
+                                 </div>
+                                <hr>
+                                <p id="para" class="first">
+                                   This test Series is design specially for those who are starting their preparation of IIT-JEE at the earlier of 
+                                   class 11.
+                                </p>
+                                <button  class="first card_info" onclick=showInfo(this)>Insight</button>
+                                   <div id="info">
+                                       <p>Price of Course</p>
+                                       <h3>Free</h3>
+                                       <button  class=" card_info enroll">Enroll</button>
+                                   </div>
+                               </div>
+                               <div class="card">
+                                   <div id="heading" class="first">
+                                       <span>
+                                        <img src="initiative.png" alt="">
+                                        <h1>
+                                             Ignite
+                                        </h1>
+                                       </span> 
+                                         <hr>
+                                     </div>
+                                    <hr>
+                                    <p id="para" class="first">
+                                       This test Series is design specially for those who are starting their preparation of IIT-JEE at the earlier of 
+                                       class 11.
+                                    </p>
+                                    <button  class="first card_info" onclick=showInfo(this)>Insight</button>
+                                       <div id="info">
+                                           <p>Price of Course</p>
+                                           <h3>Free</h3>
+                                           <button  class=" card_info enroll">Enroll</button>
+                                       </div>
+                                   </div>
+                                   <div class="card">
+                                       <div id="heading" class="first">
+                                           <span>
+                                            <img src="initiative.png" alt="">
+                                            <h1>
+                                                 Ignite
+                                            </h1>
+                                           </span> 
+                                             <hr>
+                                         </div>
+                                        <hr>
+                                        <p id="para" class="first">
+                                           This test Series is design specially for those who are starting their preparation of IIT-JEE at the earlier of 
+                                           class 11.
+                                        </p>
+                                        <button  class="first card_info" onclick=showInfo(this)>Insight</button>
+                                           <div id="info">
+                                               <p>Price of Course</p>
+                                               <h3>Free</h3>
+                                               <button  class=" card_info enroll">Enroll</button>
+                                           </div>
+                                       </div>
+                                       <div class="card">
+                                           <div id="heading" class="first">
+                                               <span>
+                                                <img src="initiative.png" alt="">
+                                                <h1>
+                                                     Ignite
+                                                </h1>
+                                               </span> 
+                                                 <hr>
+                                             </div>
+                                            <hr>
+                                            <p id="para" class="first">
+                                               This test Series is design specially for those who are starting their preparation of IIT-JEE at the earlier of 
+                                               class 11.
+                                            </p>
+                                            <button  class="first card_info" onclick=showInfo(this)>Insight</button>
+                                               <div id="info">
+                                                   <p>Price of Course</p>
+                                                   <h3>Free</h3>
+                                                   <button  class=" card_info enroll">Enroll</button>
+                                               </div>
+                                           </div>
+                </div>
+               </div>
+
+        <div class="quest_line"><p>Frequently Asked Question</p></div>
+               <div class="quest">
+                <div class="question_box">
+                 <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                  <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                  <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                  <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                  <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                  <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                  <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                  <div class="faq">
+                    <div class="row">
+                        <p>
+                        Q1. How often the tests would be conducted ?
+                        </p>
+                        <img src="down.png" alt="" width="25px" height="25px" id="faqimg" onclick="show_answer(this)">
+                      </div>
+          
+                      <div class="row" id="answer">
+                        <p id="ans">
+                          Tests would be conducted according to course schedule if you have taken our 
+                          star courses or according to availability of mentor.
+                        </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="footer">
+                <ul class="item1">
+                   <h3>Policies</h3>
+                   <hr>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Communication</a></li>
+                    <li><a href="">Transfer Policy</a></li>
+                    <li><a href="">Refund Policy</a></li>
+                </ul>
+                <ul class="item2">
+                   <h3>Test-Series</h3>
+                   <hr>
+                   <li><a href="">Ignite</a></li>
+                   <li><a href="">Ignite*</a></li>
+                   <li><a href="">Emotion</a</li>
+                   <li><a href="">Emotion*</a></li>
+                   <li><a href="">Foundation</a></li>
+                   <li><a href="">Foundation*</a></li>
+               </ul>
+               <ul class="item3">
+                   <h3>Exams Info</h3>
+                   <hr>
+                   <li><a href="">Jee-Advanced</a></li>
+                   <li><a href="">Jee-Mains</a></li>
+                   <li><a href="">Neet-Ug</a></li>
+                   <li><a href="">Physics Olympiad</a></li>
+                   <li><a href="">Chemistry Olympiad</a></li>
+                   <li><a href="">Math Olympiad</a></li>
+                </ul>
+                <div class="footer2">
+                   <p>Email-id:agarwalvansh981@gmail.com</p>
+                   <p>Contact Us:7084350098</p>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
